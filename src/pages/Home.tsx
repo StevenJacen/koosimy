@@ -1,43 +1,49 @@
 import {
-  Blocks,
   Box,
-  ChartNoAxesCombined,
   PenTool,
-  ScanSearch,
 } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import FutureBanner from '../components/FutureBanner'
 import Reveal from '../components/Reveal'
 import SectionHeading from '../components/SectionHeading'
 
-const services = [
-  { icon: ScanSearch, title: '策略研究', english: 'STRATEGY RESEARCH' },
-  { icon: ChartNoAxesCombined, title: '工业设计', english: 'INDUSTRIAL DESIGN' },
+interface Service {
+  title: string
+  english: string
+  icon?: LucideIcon
+  image?: string
+  testId?: string
+}
+
+const services: Service[] = [
+  { image: '/assets/home/icon-strategy.svg', testId: 'service-icon-strategy', title: '策略研究', english: 'STRATEGY RESEARCH' },
+  { image: '/assets/home/icon-industrial.svg', testId: 'service-icon-industrial', title: '工业设计', english: 'INDUSTRIAL DESIGN' },
   { icon: Box, title: '结构设计', english: 'STRUCTURE DESIGN' },
   { icon: PenTool, title: '品牌设计', english: 'BRAND DESIGN' },
-  { icon: Blocks, title: '供应链支持', english: 'SUPPLY CHAIN' },
+  { image: '/assets/home/icon-supply-chain.svg', testId: 'service-icon-supply-chain', title: '供应链支持', english: 'SUPPLY CHAIN' },
 ]
 
 const industrialProjects = [
-  { image: '/assets/home/industrial-equipment.jpg', number: '01', title: '工业设备' },
-  { image: '/assets/home/underwater-tool.jpg', number: '02', title: '水下设备' },
-  { image: '/assets/home/medical-device.jpg', number: '03', title: '医疗器械' },
-  { image: '/assets/home/cookware.jpg', number: '04', title: '生活厨具' },
-  { image: '/assets/home/smart-appliances.jpg', number: '05', title: '智能家电' },
+  { image: '/assets/home/industrial-equipment.jpg', number: '01', title: '工业装备与智能制造' },
+  { image: '/assets/home/underwater-tool.jpg', number: '02', title: '工具装备与智能应用' },
+  { image: '/assets/home/medical-device.jpg', number: '03', title: '医疗健康与生命科技' },
+  { image: '/assets/home/cookware.jpg', number: '04', title: '生活方式与家居用品' },
+  { image: '/assets/home/smart-appliances.jpg', number: '05', title: '智能消费与生活电器' },
 ]
 
 const brandProjects = [
-  { image: '/assets/home/brand-packaging.jpg', title: '品牌包装设计' },
+  { image: '/assets/home/brand-packaging.jpg', title: '产品包装设计' },
   { image: '/assets/home/brand-system.jpg', title: '品牌视觉系统' },
-  { image: '/assets/home/signage.jpg', title: '导视系统设计' },
+  { image: '/assets/home/signage.jpg', title: '空间导视设计' },
   { image: '/assets/home/digital-product.jpg', title: '数字产品设计' },
 ]
 
 const awards = [
+  { image: '/assets/home/award-kdesign.svg', alt: 'K-DESIGN AWARD' },
+  { image: '/assets/home/award-reddot.svg', alt: 'RED DOT DESIGN AWARD' },
   { image: '/assets/home/award-muse.jpg', alt: 'MUSE DESIGN AWARDS' },
   { image: '/assets/home/award-ida.jpg', alt: 'IDA DESIGN AWARDS' },
   { image: '/assets/home/award-if.jpg', alt: 'iF DESIGN AWARD' },
-  { image: '/assets/home/award-kdesign.svg', alt: 'K-DESIGN AWARD' },
-  { image: '/assets/home/award-reddot.svg', alt: 'RED DOT DESIGN AWARD' },
 ]
 
 export default function Home() {
@@ -67,9 +73,13 @@ export default function Home() {
             />
           </Reveal>
           <div className="home-services__grid">
-            {services.map(({ icon: Icon, title, english }, index) => (
+            {services.map(({ icon: Icon, image, testId, title, english }, index) => (
               <Reveal className="service-card" delay={index * 70} key={title}>
-                <Icon aria-hidden="true" />
+                {image ? (
+                  <img className="service-card__icon" data-testid={testId} src={image} alt="" aria-hidden="true" />
+                ) : Icon ? (
+                  <Icon aria-hidden="true" />
+                ) : null}
                 <strong>{title}</strong>
                 <span>{english}</span>
               </Reveal>
@@ -121,7 +131,7 @@ export default function Home() {
           <div className="awards__grid">
             {awards.map((award) => (
               <div className="award-logo" key={award.alt}>
-                <img src={award.image} alt={award.alt} loading="lazy" />
+                <img data-testid="award-logo" src={award.image} alt={award.alt} loading="lazy" />
               </div>
             ))}
           </div>

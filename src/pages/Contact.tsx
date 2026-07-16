@@ -1,10 +1,3 @@
-import {
-  Mail,
-  MapPin,
-  MessageCircle,
-  Phone,
-  Users,
-} from 'lucide-react'
 import FutureBanner from '../components/FutureBanner'
 import Reveal from '../components/Reveal'
 import SectionHeading from '../components/SectionHeading'
@@ -35,19 +28,24 @@ export default function Contact() {
           <SectionHeading eyebrow="GET IN TOUCH" title="联系我们" align="center" />
           <div className="contact-methods__grid">
             <Reveal className="contact-method">
-              <Phone /><span>商务电话</span><a href="tel:19301490913">19301490913</a>
+              <img className="contact-method__icon" data-testid="contact-icon-phone" src="/assets/contact/icon-phone.svg" alt="" aria-hidden="true" />
+              <span>电话咨询</span><a href="tel:19301490913">19301490913</a>
             </Reveal>
             <Reveal className="contact-method" delay={60}>
-              <Mail /><span>商务邮箱</span><a href="mailto:tanqicai@koosimy.com">tanqicai@koosimy.com</a>
+              <img className="contact-method__icon" data-testid="contact-icon-email" src="/assets/contact/icon-email.svg" alt="" aria-hidden="true" />
+              <span>邮箱联系</span><a href="mailto:tanqicai@koosimy.com">tanqicai@koosimy.com</a>
             </Reveal>
             <Reveal className="contact-method contact-method--qr" delay={120}>
-              <MessageCircle /><span>微信咨询</span><img src="/assets/contact/wechat-qr.jpg" alt="KOOSIMY 微信二维码" />
+              <img src="/assets/contact/wechat-qr.jpg" alt="KOOSIMY 微信二维码" />
+              <span>微信咨询</span><p>扫码添加微信<br />专业顾问在线沟通</p>
             </Reveal>
             <Reveal className="contact-method" delay={180}>
-              <MapPin /><span>公司地址</span><p>上海市闵行区光中路255号2栋508</p>
+              <img className="contact-method__icon" data-testid="contact-icon-location" src="/assets/contact/icon-location.svg" alt="" aria-hidden="true" />
+              <span>公司地址</span><p>上海市闵行区光中路255号2栋508</p>
             </Reveal>
             <Reveal className="contact-method" delay={240}>
-              <Users /><span>商务合作</span><p>微信号 koosimy<br />获取项目支持</p>
+              <img className="contact-method__icon" data-testid="contact-icon-business" src="/assets/contact/icon-business.svg" alt="" aria-hidden="true" />
+              <span>商务合作</span><p>微信号 koosimy<br />获取项目支持</p>
             </Reveal>
           </div>
         </div>
@@ -59,7 +57,7 @@ export default function Contact() {
             <img src="/assets/contact/consultation.jpg" alt="产品设计咨询沟通" loading="lazy" />
           </Reveal>
           <Reveal className="consultation__copy" delay={100}>
-            <SectionHeading eyebrow="HAVE AN IDEA?" title="有想法？我们很愿意倾听" />
+            <SectionHeading eyebrow="HAVE AN IDEA?" title="有想法？我们很乐意倾听" />
             <p>
               无论是从零开始的新产品，还是既有产品与品牌的焕新，
               欢迎告诉我们你的想法、需求和期望。我们会在一个工作日内与你联系。

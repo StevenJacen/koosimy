@@ -17,4 +17,15 @@ describe('Cases', () => {
       firstBefore ?? '',
     )
   })
+
+  it('uses the single-column prototype introduction', () => {
+    render(<Cases />)
+
+    expect(screen.getByTestId('case-intro-content')).toHaveTextContent(
+      '将净化、加热、冲泡、陪伴融为一体',
+    )
+    expect(screen.getByTestId('case-intro-content')).toHaveTextContent(
+      '让科技不再只是功能动作，而成为空间中的一部分',
+    )
+  })
 })

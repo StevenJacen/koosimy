@@ -23,4 +23,35 @@ describe('Home', () => {
     })
     expect(screen.getAllByRole('img').length).toBeGreaterThanOrEqual(12)
   })
+
+  it('uses the supplied service SVGs and prototype award order', () => {
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByTestId('service-icon-strategy')).toHaveAttribute(
+      'src',
+      '/assets/home/icon-strategy.svg',
+    )
+    expect(screen.getByTestId('service-icon-industrial')).toHaveAttribute(
+      'src',
+      '/assets/home/icon-industrial.svg',
+    )
+    expect(screen.getByTestId('service-icon-supply-chain')).toHaveAttribute(
+      'src',
+      '/assets/home/icon-supply-chain.svg',
+    )
+    expect(screen.getAllByTestId('award-logo').map((image) => image.getAttribute('alt'))).toEqual([
+      'K-DESIGN AWARD',
+      'RED DOT DESIGN AWARD',
+      'MUSE DESIGN AWARDS',
+      'IDA DESIGN AWARDS',
+      'iF DESIGN AWARD',
+    ])
+    expect(screen.getByText('工业装备与智能制造')).toBeInTheDocument()
+    expect(screen.getByText('工具装备与智能应用')).toBeInTheDocument()
+    expect(screen.getByText('空间导视设计')).toBeInTheDocument()
+  })
 })

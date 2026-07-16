@@ -15,4 +15,20 @@ describe('Contact', () => {
     ).toHaveAttribute('href', 'mailto:tanqicai@koosimy.com')
     expect(screen.getByAltText('KOOSIMY 公司位置地图')).toBeInTheDocument()
   })
+
+  it('uses every supplied contact SVG and the prototype consultation copy', () => {
+    render(<Contact />)
+
+    ;[
+      ['phone', '/assets/contact/icon-phone.svg'],
+      ['email', '/assets/contact/icon-email.svg'],
+      ['location', '/assets/contact/icon-location.svg'],
+      ['business', '/assets/contact/icon-business.svg'],
+    ].forEach(([name, src]) => {
+      expect(screen.getByTestId(`contact-icon-${name}`)).toHaveAttribute('src', src)
+    })
+    expect(
+      screen.getByRole('heading', { name: '有想法？我们很乐意倾听' }),
+    ).toBeInTheDocument()
+  })
 })

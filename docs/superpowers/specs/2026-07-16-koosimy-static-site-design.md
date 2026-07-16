@@ -89,6 +89,11 @@
 - 文件统一改为稳定的英文 kebab-case 名称，代码中不引用包含空格或中文的源文件名。
 - 对大幅 JPG 使用源文件并通过 CSS 控制裁切；首屏图片优先加载，其余图片懒加载。
 - 使用素材中的官方 SVG Logo 和图标；不使用现有错误占位图。
+- SVG 映射：
+  - `酷施美logo .svg` → 全站导航 Logo。
+  - `wodeyanjiu 1.svg`、`jiaohusheji 1.svg`、`weibiaoti-4 1.svg` → 首页策略研究、工业设计、供应链支持图标。
+  - `huizhi-01 1.svg`、`Group 18.svg` → 首页 K-DESIGN 与 RED DOT 奖项标志。
+  - 联系页 `dianhuazixun 1.svg`、`Group 42.svg`、`Group 40.svg`、`Group 46.svg` → 电话、邮箱、地址、商务合作图标。
 
 ## 响应式行为
 

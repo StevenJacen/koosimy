@@ -36,21 +36,21 @@ export default function Cases() {
       </section>
 
       <section className="case-intro section-pad">
-        <div className="site-container case-intro__grid">
-          <Reveal>
-            <p className="case-intro__index">YUHAN SMART KETTLE</p>
-            <h1>玉环职智能水壶</h1>
-          </Reveal>
-          <Reveal className="case-intro__copy" delay={100}>
-            <p>
-              以现代家庭饮水场景为出发点，我们重构了智能水壶与即热饮水机的产品语言。
-              纯净几何形体、温润材质与直观交互，让功能自然融入生活空间。
-            </p>
-            <dl>
-              <div><dt>服务内容</dt><dd>产品策略 / 工业设计 / 结构落地</dd></div>
-              <div><dt>项目时间</dt><dd>2024</dd></div>
-            </dl>
-          </Reveal>
+        <div className="site-container">
+          <div className="case-intro__content" data-testid="case-intro-content">
+            <Reveal>
+              <p className="case-intro__index">YUHAN SMART KETTLE</p>
+              <h1>玉环职智能水壶</h1>
+              <p>
+                这是一款为现代生活方式而设计的智能即热净饮水壶，将净化、加热、冲泡、陪伴融为一体。
+                简约一体化机身搭配悬浮式透明水箱，以克制而高级的设计语言，自然融入居家、卧室、办公桌等多种生活场景。
+              </p>
+              <p>
+                创新的下沉式取水空间与折叠托盘设计，不仅兼容不同高度杯具，也让使用过程更整洁优雅。
+                柔和氛围灯与透明视窗结合，让科技不再只是功能动作，而成为空间中的一部分。
+              </p>
+            </Reveal>
+          </div>
         </div>
       </section>
 
