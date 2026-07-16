@@ -1,0 +1,12 @@
+node_modules
+dist
+.DS_Store
+
+# Unused scaffold files retained locally but excluded from the site repository
+/components.json
+/info.md
+/tailwind.config.js
+/public/*.jpg
+/src/components/ui/
+/src/hooks/
+/src/lib/
