@@ -1,5 +1,6 @@
 import FutureBanner from '../components/FutureBanner'
 import Reveal from '../components/Reveal'
+import ResponsiveHero from '../components/ResponsiveHero'
 import SectionHeading from '../components/SectionHeading'
 
 const capabilities = [
@@ -39,8 +40,12 @@ const partnerLogos = Array.from({ length: 12 }, (_, index) =>
 export default function About() {
   return (
     <div className="about-page" data-testid="about-page">
-      <section className="about-hero">
-        <img src="/assets/about/hero.jpg" alt="KOOSIMY 设计工作室" />
+      <ResponsiveHero
+        className="about-hero"
+        src="/assets/about/hero.jpg"
+        alt="KOOSIMY 设计工作室"
+        aspectRatio="3840 / 2161"
+      >
         <div className="site-container about-hero__content">
           <p>WE DESIGN THE FUTURE</p>
           <h1 className="about-hero__display">
@@ -49,7 +54,7 @@ export default function About() {
           <p className="about-hero__tagline">设计 · 连接未来</p>
         </div>
         <div className="site-container about-hero__service">一站式产品设计研发服务</div>
-      </section>
+      </ResponsiveHero>
 
       <section className="about-profile section-pad">
         <div className="site-container">

@@ -1,5 +1,6 @@
 import FutureBanner from '../components/FutureBanner'
 import Reveal from '../components/Reveal'
+import ResponsiveHero from '../components/ResponsiveHero'
 import SectionHeading from '../components/SectionHeading'
 
 const platforms = [
@@ -12,8 +13,12 @@ const platforms = [
 export default function Contact() {
   return (
     <div className="contact-page" data-testid="contact-page">
-      <section className="contact-hero">
-        <img src="/assets/contact/hero.jpg" alt="红色现代建筑空间" />
+      <ResponsiveHero
+        className="contact-hero"
+        src="/assets/contact/hero.jpg"
+        alt="红色现代建筑空间"
+        aspectRatio="3840 / 2162"
+      >
         <div className="site-container contact-hero__content">
           <p>联系我们</p>
           <h1>CONTACT<br /><span>KOOSIMY</span></h1>
@@ -21,7 +26,7 @@ export default function Contact() {
           <strong>设计 · 连接未来</strong>
           <b>一站式产品设计研发服务</b>
         </div>
-      </section>
+      </ResponsiveHero>
 
       <section className="contact-methods section-pad">
         <div className="site-container">

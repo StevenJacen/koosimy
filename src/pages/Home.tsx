@@ -5,6 +5,7 @@ import {
 import type { LucideIcon } from 'lucide-react'
 import FutureBanner from '../components/FutureBanner'
 import Reveal from '../components/Reveal'
+import ResponsiveHero from '../components/ResponsiveHero'
 import SectionHeading from '../components/SectionHeading'
 
 interface Service {
@@ -49,8 +50,13 @@ const awards = [
 export default function Home() {
   return (
     <div className="home-page" data-testid="home-page">
-      <section className="home-hero">
-        <img className="home-hero__image" src="/assets/home/hero.jpg" alt="未来感机器人产品设计" />
+      <ResponsiveHero
+        className="home-hero"
+        imageClassName="home-hero__image"
+        src="/assets/home/hero.jpg"
+        alt="未来感机器人产品设计"
+        aspectRatio="3840 / 2162"
+      >
         <div className="site-container home-hero__content">
           <p className="home-hero__eyebrow">WE DESIGN THE FUTURE</p>
           <h1>
@@ -61,7 +67,7 @@ export default function Home() {
           <p className="home-hero__tagline">设计 · 连接未来</p>
         </div>
         <div className="site-container home-hero__service">一站式产品设计研发服务</div>
-      </section>
+      </ResponsiveHero>
 
       <section className="home-services section-pad">
         <div className="site-container">

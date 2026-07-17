@@ -429,15 +429,23 @@ img {
   padding-block: clamp(92px, 9vw, 150px);
 }
 
-.home-hero,
-.about-hero,
-.contact-hero {
+.responsive-hero {
   position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--hero-aspect);
   overflow: hidden;
 }
 
+.responsive-hero__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .home-hero {
-  min-height: calc(100vh - 88px);
   color: #fff;
   background: #aeb2b6;
 }
@@ -447,16 +455,6 @@ img {
   position: absolute;
   inset: 0;
   background: linear-gradient(90deg, rgba(10, 12, 14, 0.36), transparent 55%);
-}
-
-.home-hero__image,
-.about-hero > img,
-.contact-hero > img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .home-hero__content {
@@ -681,13 +679,9 @@ img {
 
 /* Cases */
 .cases-hero {
-  height: min(74vw, 1120px);
-  min-height: 650px;
-  overflow: hidden;
   background: #eeeae4;
 }
 
-.cases-hero img,
 .case-visual img {
   width: 100%;
   height: 100%;
@@ -833,8 +827,6 @@ img {
 /* About */
 .about-hero,
 .contact-hero {
-  height: min(62vw, 1100px);
-  min-height: 650px;
   color: #fff;
 }
 
@@ -1453,16 +1445,35 @@ img {
     padding-block: 80px;
   }
 
-  .home-hero {
-    min-height: 720px;
-  }
-
-  .home-hero__image {
-    object-position: 62% center;
-  }
-
   .home-hero__content {
-    padding-top: 110px;
+    padding-top: clamp(52px, 8vw, 80px);
+  }
+
+  .home-hero h1 {
+    font-size: clamp(40px, 8vw, 64px);
+  }
+
+  .home-hero__tagline {
+    margin-top: 22px;
+  }
+
+  .home-hero__service,
+  .about-hero__service {
+    inset-block-end: 24px;
+  }
+
+  .about-hero__content,
+  .contact-hero__content {
+    padding-top: clamp(42px, 7vw, 64px);
+  }
+
+  .about-hero__display,
+  .contact-hero__content h1 {
+    font-size: clamp(38px, 7vw, 56px) !important;
+  }
+
+  .contact-hero__line {
+    margin: 16px 0 24px;
   }
 
   .about-profile__intro,
@@ -1495,12 +1506,6 @@ img {
 
   .awards__grid {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  .cases-hero,
-  .about-hero,
-  .contact-hero {
-    min-height: 600px;
   }
 
   .case-story__heading {
@@ -1583,20 +1588,34 @@ img {
     padding-block: 64px;
   }
 
-  .home-hero {
-    min-height: 680px;
+  .home-hero::after {
+    background: linear-gradient(90deg, rgba(8, 10, 12, 0.5), rgba(8, 10, 12, 0.02));
   }
 
-  .home-hero::after {
-    background: linear-gradient(90deg, rgba(8, 10, 12, 0.6), rgba(8, 10, 12, 0.04));
+  .home-hero__content {
+    padding-top: 18px;
+  }
+
+  .home-hero__eyebrow {
+    margin-bottom: 5px;
+    font-size: 8px;
   }
 
   .home-hero h1 {
-    font-size: clamp(44px, 13.5vw, 54px);
+    font-size: clamp(28px, 8.5vw, 36px);
   }
 
   .home-hero__tagline {
-    letter-spacing: 0.22em;
+    margin-top: 9px;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+  }
+
+  .home-hero__service,
+  .about-hero__service {
+    inset-block-end: 8px;
+    font-size: 8px;
+    letter-spacing: 0.12em;
   }
 
   .home-services__grid {
@@ -1649,42 +1668,25 @@ img {
     height: 110px;
   }
 
-  .cases-hero,
-  .about-hero,
-  .contact-hero {
-    height: 620px;
-    min-height: 0;
-  }
-
-  .cases-hero img {
-    object-position: 58% center;
-  }
-
-  .about-hero > img {
-    object-position: 58% center;
-  }
-
-  .contact-hero > img {
-    object-position: 61% center;
-  }
-
   .about-hero__content,
   .contact-hero__content {
-    padding-top: 130px;
+    padding-top: 16px;
   }
 
-  .about-hero h1,
-  .contact-hero h1 {
-    font-size: 40px;
+  .about-hero__content > p,
+  .contact-hero__content > p {
+    margin-bottom: 5px;
+    font-size: 9px;
   }
 
   .about-hero__display {
-    font-size: 44px !important;
+    font-size: 28px !important;
   }
 
   .about-hero__content .about-hero__tagline {
-    font-size: 17px;
-    letter-spacing: 0.18em;
+    margin-top: 6px;
+    font-size: 10px;
+    letter-spacing: 0.12em;
   }
 
   .contact-hero::after {
@@ -1692,11 +1694,27 @@ img {
   }
 
   .contact-hero__content > p {
-    font-size: 18px;
+    font-size: 9px;
+  }
+
+  .contact-hero__content h1 {
+    font-size: 30px !important;
   }
 
   .contact-hero__line {
-    margin: 22px 0 34px;
+    width: 28px;
+    height: 2px;
+    margin: 7px 0 9px;
+  }
+
+  .contact-hero__content strong,
+  .contact-hero__content b {
+    font-size: 10px;
+    line-height: 1.25;
+  }
+
+  .contact-hero__content b {
+    margin-top: 3px;
   }
 
   .case-visual--detail,

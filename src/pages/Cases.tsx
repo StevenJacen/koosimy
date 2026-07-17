@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import FutureBanner from '../components/FutureBanner'
 import Reveal from '../components/Reveal'
+import ResponsiveHero from '../components/ResponsiveHero'
 import SectionHeading from '../components/SectionHeading'
 
 const relatedCases = [
@@ -31,9 +32,12 @@ export default function Cases() {
 
   return (
     <div className="cases-page" data-testid="cases-page">
-      <section className="cases-hero">
-        <img src="/assets/cases/kettle-hero.jpg" alt="玉环职智能水壶设计" />
-      </section>
+      <ResponsiveHero
+        className="cases-hero"
+        src="/assets/cases/kettle-hero.jpg"
+        alt="玉环职智能水壶设计"
+        aspectRatio="3840 / 1896"
+      />
 
       <section className="case-intro section-pad">
         <div className="site-container">
