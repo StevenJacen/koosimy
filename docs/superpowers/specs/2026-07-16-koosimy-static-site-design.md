@@ -92,7 +92,8 @@
 - SVG 映射：
   - `酷施美logo .svg` → 全站导航 Logo。
   - `wodeyanjiu 1.svg`、`jiaohusheji 1.svg`、`weibiaoti-4 1.svg` → 首页策略研究、工业设计、供应链支持图标。
-  - `huizhi-01 1.svg`、`Group 18.svg` → 首页 K-DESIGN 与 RED DOT 奖项标志。
+  - `huizhi-01 1.svg`、`Group 18.svg` → 首页品牌设计与结构设计服务图标。
+  - `Clip path group.jpg` 与对应奖项截图 → 首页 K-DESIGN 与 RED DOT 奖项标志。
   - 联系页 `dianhuazixun 1.svg`、`Group 42.svg`、`Group 40.svg`、`Group 46.svg` → 电话、邮箱、地址、商务合作图标。
 
 ## 响应式行为

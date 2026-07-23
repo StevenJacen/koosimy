@@ -22,14 +22,22 @@ export default function SiteFooter() {
         </div>
         <div className="site-footer__qr">
           <img src="/assets/contact/wechat-qr.jpg" alt="KOOSIMY 微信咨询二维码" loading="lazy" />
-          <div className="site-footer__douyin" aria-label="抖音搜索酷施美">
-            <span>抖音</span>
-            <small>搜索酷施美</small>
-          </div>
+          <img
+            className="site-footer__douyin"
+            src="/assets/contact/douyin-qr.jpg"
+            alt="抖音搜索酷施美"
+            loading="lazy"
+          />
         </div>
       </div>
-      <div className="site-container site-footer__copyright">
-        © {new Date().getFullYear()} KOOSIMY. All rights reserved.
+      <div className="site-container site-footer__legal">
+        <span>© {new Date().getFullYear()} KOOSIMY. All rights reserved.</span>
+        <p className="site-footer__attribution">
+          <span>Icons by Nobita (IcoFont), licensed under </span>
+          <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">
+            CC BY 4.0
+          </a>
+        </p>
       </div>
     </footer>
   )

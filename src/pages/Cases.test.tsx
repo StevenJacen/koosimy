@@ -27,5 +27,17 @@ describe('Cases', () => {
     expect(screen.getByTestId('case-intro-content')).toHaveTextContent(
       '让科技不再只是功能动作，而成为空间中的一部分',
     )
+    expect(screen.getByTestId('case-intro-content')).toHaveTextContent(
+      '它不仅是一台饮水设备，更像是一件安静陪伴生活的智能家居产品',
+    )
+  })
+
+  it('matches the approved gallery and bilingual related-case structure', () => {
+    render(<Cases />)
+
+    expect(document.querySelector('.case-story')).not.toBeInTheDocument()
+    expect(screen.getByTestId('case-gallery')).toBeInTheDocument()
+    expect(screen.getAllByTestId('related-case-english')).toHaveLength(2)
+    expect(screen.getByText('KONKA CHERRY POT')).toBeInTheDocument()
   })
 })

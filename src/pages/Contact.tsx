@@ -30,7 +30,6 @@ export default function Contact() {
 
       <section className="contact-methods section-pad">
         <div className="site-container">
-          <SectionHeading eyebrow="GET IN TOUCH" title="联系我们" align="center" />
           <div className="contact-methods__grid">
             <Reveal className="contact-method">
               <img className="contact-method__icon" data-testid="contact-icon-phone" src="/assets/contact/icon-phone.svg" alt="" aria-hidden="true" />
@@ -58,31 +57,37 @@ export default function Contact() {
 
       <section className="consultation section-pad">
         <div className="site-container consultation__grid">
-          <Reveal className="consultation__image">
-            <img src="/assets/contact/consultation.jpg" alt="产品设计咨询沟通" loading="lazy" />
-          </Reveal>
-          <Reveal className="consultation__copy" delay={100}>
-            <SectionHeading eyebrow="HAVE AN IDEA?" title="有想法？我们很乐意倾听" />
+          <Reveal className="consultation__copy">
+            <h2>有想法？<span>我们很乐意倾听</span></h2>
             <p>
-              无论是从零开始的新产品，还是既有产品与品牌的焕新，
-              欢迎告诉我们你的想法、需求和期望。我们会在一个工作日内与你联系。
+              无论您有产品创意、品牌升级需求，还是项目合作意向，
+              我们都愿意成为您最可靠的设计伙伴。随时联系我们，开启一段有价值的对话。
             </p>
-            <a className="contact-button" href="mailto:tanqicai@koosimy.com?subject=KOOSIMY 项目咨询">发送项目需求</a>
+            <a className="consultation__link" href="mailto:tanqicai@koosimy.com?subject=KOOSIMY 项目咨询">
+              发送项目需求 →
+            </a>
+          </Reveal>
+          <Reveal className="consultation__image" delay={100}>
+            <img src="/assets/contact/consultation.jpg" alt="产品设计咨询沟通" loading="lazy" />
           </Reveal>
         </div>
       </section>
 
       <section className="location-section section-pad">
         <div className="site-container">
-          <SectionHeading eyebrow="VISIT OUR STUDIO" title="到访工作室" />
+          <SectionHeading eyebrow="LOCATION" title="我们在这里" />
+          <div className="location-address">
+            <img src="/assets/contact/icon-location.svg" alt="" aria-hidden="true" />
+            <p><strong>公司地址</strong><span>上海市闵行区光中路255号 2栋508</span></p>
+          </div>
           <div className="location-section__grid">
             <Reveal className="location-map">
               <img src="/assets/contact/map.jpg" alt="KOOSIMY 公司位置地图" loading="lazy" />
             </Reveal>
             <div className="location-info">
-              <div><span>ADDRESS</span><strong>上海市闵行区光中路255号<br />2栋508室</strong></div>
               <div><span>WORKING HOURS</span><strong>周一至周五<br />09:30 — 18:30</strong></div>
               <div><span>TRANSPORTATION</span><strong>地铁12号线虹莘路站<br />驾车可预约园区停车</strong></div>
+              <div><span>VISIT GUIDE</span><strong>为了节省您的参考体验<br />来访前请提前联系我们</strong></div>
             </div>
           </div>
         </div>
@@ -90,7 +95,10 @@ export default function Contact() {
 
       <section className="social-platforms section-pad">
         <div className="site-container">
-          <SectionHeading eyebrow="PLATFORM RAPID RESPONSE" title="多平台触达 快速响应" />
+          <div className="social-platforms__intro">
+            <SectionHeading eyebrow="Platform Rapid response" title="多平台触达 快速响应" />
+            <p>通过多平台与我们保持联络，我们将第一时间回应您的需求。</p>
+          </div>
           <div className="social-platforms__grid">
             {platforms.map(([image, label]) => (
               <div className="social-platform" key={label}>

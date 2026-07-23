@@ -4,11 +4,36 @@ import ResponsiveHero from '../components/ResponsiveHero'
 import SectionHeading from '../components/SectionHeading'
 
 const capabilities = [
-  { number: '01', title: '策略研究', english: 'STRATEGY RESEARCH', description: '洞察用户、行业与技术趋势，为创新找到清晰方向。' },
-  { number: '02', title: '工业设计', english: 'INDUSTRIAL DESIGN', description: '建立产品与品牌的长期设计语言，连接商业目标。' },
-  { number: '03', title: '结构设计', english: 'STRUCTURE DESIGN', description: '兼顾美学、功能与制造，塑造具有辨识度的产品体验。' },
-  { number: '04', title: '品牌设计', english: 'BRAND DESIGN', description: '从核心概念到完整视觉系统，让品牌表达一致而有力。' },
-  { number: '05', title: '工业链支持', english: 'SUPPLY CHAIN', description: '联动结构、工程与供应链，推动创意成为可靠产品。' },
+  {
+    number: '01',
+    title: '策略研究',
+    english: 'STRATEGY RESEARCH',
+    description: '从市场趋势、用户需求、竞品格局与产业机会出发，帮助客户明确产品定位与发展方向。通过前期策略与场景分析，梳理产品核心价值、目标用户与体验逻辑，为后续设计决策提供清晰依据。',
+  },
+  {
+    number: '02',
+    title: '工业设计',
+    english: 'INDUSTRIAL DESIGN',
+    description: '围绕产品外观、功能体验、人机交互与品牌识别进行系统化设计，将创新理念转化为兼具市场竞争力的产品方案。我们注重造型美感、使用体验与制造合理性的平衡，提升产品的视觉吸引力与用户认同。',
+  },
+  {
+    number: '03',
+    title: '结构设计',
+    english: 'STRUCTURE DESIGN',
+    description: '结合产品功能、内部构成、材料特性、生产工艺与装配方式，进行结构设计与工程验证。通过合理的结构方案，保障产品的稳定性、安全性、可制造性与后期维护效率。',
+  },
+  {
+    number: '04',
+    title: '品牌设计',
+    english: 'BRAND DESIGN',
+    description: '从品牌定位、视觉识别、产品语言与传播表达出发，构建统一且具有辨识度的品牌形象。通过品牌策略与设计系统的整合，强化产品与品牌之间的关联，提升品牌的整体市场记忆点。',
+  },
+  {
+    number: '05',
+    title: '工业链支持',
+    english: 'SUPPLY CHAIN',
+    description: '依托设计资源与生产端协同能力，提供从材料打样、结构工艺、供应商对接到量产落地的全流程支持，帮助客户降低沟通与试错成本，提升产品从概念设计到生产上市的落地效率。',
+  },
 ]
 
 const founders = [
@@ -64,11 +89,15 @@ export default function About() {
               <h3>让好设计 成就商业价值</h3>
               <div>
                 <p>
-                  酷施美是一家专注于产品创新的设计咨询公司。我们以用户洞察为起点，
-                  将策略、工业设计、品牌与工程落地融为一体，为客户创造具有商业价值的产品。
+                  酷施美是一家专注于产品创新设计的专业机构。我们以用户为中心，融合策略、设计与技术，
+                  为客户提供从洞察到落地的一站式产品设计研发服务，帮助企业提升产品竞争力，连接未来的更多可能。
                 </p>
                 <p>
-                  团队扎根上海，服务覆盖消费电子、智能家电、医疗健康、工业装备与生活方式等领域。
+                  我们深耕智能家居、生活电器、美容个护、消费电子、医疗健康及新消费产品等多个行业，
+                  服务涵盖产品设计、品牌创意、UI/APP界面等体验服务方向。
+                </p>
+                <p>
+                  凭借对市场、科技与消费趋势的敏锐洞察，力求产出兼具商业创新性、实用性与市场竞争力的产品解决方案。
                 </p>
               </div>
             </Reveal>
@@ -77,9 +106,9 @@ export default function About() {
             </Reveal>
           </div>
           <div className="stats-grid">
-            <div><strong>8+</strong><span>年设计经验</span></div>
-            <div><strong>100+</strong><span>合作客户</span></div>
-            <div><strong>300+</strong><span>落地项目</span></div>
+            <div><strong>8+</strong><span>行业深耕</span></div>
+            <div><strong>100+</strong><span>服务客户</span></div>
+            <div><strong>300+</strong><span>落地产品</span></div>
             <div><strong>1</strong><span>一站式服务</span></div>
           </div>
         </div>
@@ -102,7 +131,8 @@ export default function About() {
 
       <section className="founders section-pad">
         <div className="site-container">
-          <SectionHeading eyebrow="FOUNDERS" title="创始团队" />
+          <SectionHeading eyebrow="FOUNDING TEAM" title="创始团队" />
+          <p className="founders__statement">以专业驱动创新</p>
           <div className="founders__list">
             {founders.map((founder, index) => (
               <Reveal className={`founder-card ${index % 2 ? 'founder-card--reverse' : ''}`} key={founder.name}>
@@ -138,7 +168,7 @@ export default function About() {
           <SectionHeading
             eyebrow="PARTNER"
             title="合作伙伴"
-            description="我们与各行业领先品牌持续合作，以专业设计能力推动产品创新与商业增长。"
+            description="经过多年的发展，酷施美设计已成功携手上海电气、西屋、大宇等超200家国内外知名企业和新兴互联网品牌，打造出1000余个优秀案例。我们擅长为企业量身定制人性化的产品规划与设计服务，用严谨创新、精益求精的设计助力成就产品和品牌价值"
           />
           <div className="partners__grid">
             {partnerLogos.map((logo, index) => (

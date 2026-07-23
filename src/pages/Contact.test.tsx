@@ -30,5 +30,11 @@ describe('Contact', () => {
     expect(
       screen.getByRole('heading', { name: '有想法？我们很乐意倾听' }),
     ).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: '多平台触达 快速响应' }),
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: '我们在这里' }),
+    ).toBeInTheDocument()
   })
 })

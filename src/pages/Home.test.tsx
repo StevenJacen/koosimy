@@ -54,4 +54,18 @@ describe('Home', () => {
     expect(screen.getByText('工具装备与智能应用')).toBeInTheDocument()
     expect(screen.getByText('空间导视设计')).toBeInTheDocument()
   })
+
+  it('includes every project action required by the design', () => {
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByRole('link', { name: /了解更多/ })).toBeInTheDocument()
+    expect(screen.getAllByRole('link', { name: /查看案例/ })).toHaveLength(9)
+    expect(screen.getByText('用系统设计串联高效生产与安全操作')).toBeInTheDocument()
+    expect(screen.getByText('让品牌在包装、空间与数字触点保持一致')).toBeInTheDocument()
+    expect(screen.getByText('定义产品机会，建立清晰创新方向')).toBeInTheDocument()
+  })
 })

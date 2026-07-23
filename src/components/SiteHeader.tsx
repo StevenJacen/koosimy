@@ -30,7 +30,7 @@ export default function SiteHeader() {
 
   return (
     <header className="site-header">
-      <div className="site-container site-header__inner">
+      <div className="site-header__inner">
         <Link to="/" className="site-logo" aria-label="酷施美 KOOSIMY 首页">
           <img src="/assets/logo-koosimy.svg" alt="酷施美 KOOSIMY" />
         </Link>

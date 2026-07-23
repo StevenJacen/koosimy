@@ -10,3 +10,6 @@ dist
 /src/components/ui/
 /src/hooks/
 /src/lib/
+
+# Local visual QA artifacts
+/comparison-screenshots/
