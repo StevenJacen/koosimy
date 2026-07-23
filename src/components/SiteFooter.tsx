@@ -21,13 +21,19 @@ export default function SiteFooter() {
           </div>
         </div>
         <div className="site-footer__qr">
-          <img src="/assets/contact/wechat-qr.jpg" alt="KOOSIMY 微信咨询二维码" loading="lazy" />
-          <img
-            className="site-footer__douyin"
-            src="/assets/contact/douyin-qr.jpg"
-            alt="抖音搜索酷施美"
-            loading="lazy"
-          />
+          <figure>
+            <img src="/assets/contact/wechat-qr.jpg" alt="KOOSIMY 微信咨询二维码" loading="lazy" />
+            <figcaption>联系我们</figcaption>
+          </figure>
+          <figure>
+            <img
+              className="site-footer__douyin"
+              src="/assets/contact/douyin-qr.jpg"
+              alt="抖音搜索酷施美"
+              loading="lazy"
+            />
+            <figcaption>抖音搜索</figcaption>
+          </figure>
         </div>
       </div>
       <div className="site-container site-footer__legal">

@@ -1,3 +1,5 @@
+import { CircleCheck } from 'lucide-react'
+
 interface FutureBannerProps {
   image?: string
 }
@@ -12,9 +14,17 @@ export default function FutureBanner({
         <p className="future-banner__english">WE DESIGN THE FUTURE</p>
         <h2>我们设计未来</h2>
         <ul>
-          <li>融合策略、设计与技术</li>
-          <li>助力企业创新升级</li>
-          <li>赋能商业成功</li>
+          {['融合策略、设计与技术', '助力企业创新升级', '赋能商业成功'].map(
+            (item) => (
+              <li key={item}>
+                <CircleCheck
+                  aria-hidden="true"
+                  data-testid="future-check-icon"
+                />
+                <span>{item}</span>
+              </li>
+            ),
+          )}
         </ul>
       </div>
     </section>

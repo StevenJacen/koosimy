@@ -3,6 +3,12 @@ import Reveal from '../components/Reveal'
 import ResponsiveHero from '../components/ResponsiveHero'
 import SectionHeading from '../components/SectionHeading'
 
+const companyProfileParagraphs = [
+  '酷施美是一家专注于产品创新设计的专业机构。我们以用户为中心，融合策略、设计与技术，为客户提供从洞察到落地的一站式产品设计研发服务，帮助企业提升产品竞争力，连接未来的更多可能。',
+  '我们深耕智能家居、生活电器、美容个护、消费电子、医疗健康及新消费产品等多个行业，服务涵盖产品设计、品牌创意、UI/APP界面等体验服务方向。',
+  '凭借对市场、科技与消费趋势的敏锐洞察，力求产出兼具商业创新性、实用性与市场竞争力的产品解决方案。',
+]
+
 const capabilities = [
   {
     number: '01',
@@ -41,21 +47,37 @@ const founders = [
     image: '/assets/about/founder-tangmin.jpg',
     name: '唐敏',
     role: '创始人 / 设计总监',
-    description: '深耕工业设计与品牌创新，以系统化设计方法帮助企业建立持久竞争力。',
+    profile: [
+      '华东理工大学工业设计工程硕士',
+      '无创空间联合创始人',
+      '8年综合产品设计经验',
+      '曾获IF、kdesign等国际设计大奖',
+    ],
   },
   {
     image: '/assets/about/founder-tanqicai.jpg',
-    name: '谭奇才',
+    name: '谭祺才',
     role: '联合创始人 / 总经理',
-    description: '专注产品创新与产业落地，连接设计、技术、制造和市场的完整价值链。',
+    profile: [
+      '上海电机学院-工业设计专业',
+      '获得比赛类奖项若干，专利十余项',
+      '6年综合产品设计&量产支持经验',
+      '现负责团队业务的营销推广',
+    ],
   },
 ]
 
 const team = [
-  ['team-01.jpg', '工业设计师'], ['team-02.jpg', '品牌设计师'], ['team-03.jpg', '结构工程师'],
-  ['team-02.jpg', '用户研究员'], ['team-03.jpg', '产品经理'], ['team-01.jpg', '视觉设计师'],
-  ['team-03.jpg', 'CMF 设计师'], ['team-01.jpg', '供应链经理'], ['team-02.jpg', '交互设计师'],
-  ['team-01.jpg', '项目经理'],
+  { image: 'team-01.jpg', name: '吴海涛', role: '工业设计师' },
+  { image: 'team-02.jpg', name: '吴海涛', role: '品牌设计师' },
+  { image: 'team-03.jpg', name: '吴海涛', role: '结构工程师' },
+  { image: 'team-02.jpg', name: '吴海涛', role: '用户研究员' },
+  { image: 'team-03.jpg', name: '吴海涛', role: '产品经理' },
+  { image: 'team-01.jpg', name: '吴海涛', role: '视觉设计师' },
+  { image: 'team-03.jpg', name: '吴海涛', role: 'CMF 设计师' },
+  { image: 'team-01.jpg', name: '吴海涛', role: '供应链经理' },
+  { image: 'team-02.jpg', name: '吴海涛', role: '交互设计师' },
+  { image: 'team-01.jpg', name: '吴海涛', role: '项目经理' },
 ]
 
 const partnerLogos = Array.from({ length: 12 }, (_, index) =>
@@ -87,18 +109,10 @@ export default function About() {
             <Reveal className="about-profile__copy">
               <SectionHeading eyebrow="COMPANY PROFILE" title="公司简介" />
               <h3>让好设计 成就商业价值</h3>
-              <div>
-                <p>
-                  酷施美是一家专注于产品创新设计的专业机构。我们以用户为中心，融合策略、设计与技术，
-                  为客户提供从洞察到落地的一站式产品设计研发服务，帮助企业提升产品竞争力，连接未来的更多可能。
-                </p>
-                <p>
-                  我们深耕智能家居、生活电器、美容个护、消费电子、医疗健康及新消费产品等多个行业，
-                  服务涵盖产品设计、品牌创意、UI/APP界面等体验服务方向。
-                </p>
-                <p>
-                  凭借对市场、科技与消费趋势的敏锐洞察，力求产出兼具商业创新性、实用性与市场竞争力的产品解决方案。
-                </p>
+              <div className="about-profile__narrative" data-testid="company-profile-narrative">
+                {companyProfileParagraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
               </div>
             </Reveal>
             <Reveal className="about-profile__studio" delay={80}>
@@ -141,7 +155,11 @@ export default function About() {
                   <span>0{index + 1}</span>
                   <h3>{founder.name}</h3>
                   <strong>{founder.role}</strong>
-                  <p>{founder.description}</p>
+                  <p className="founder-card__bio">
+                    {founder.profile.map((line) => (
+                      <span className="founder-card__bio-line" key={line}>{line}</span>
+                    ))}
+                  </p>
                 </div>
               </Reveal>
             ))}
@@ -153,10 +171,14 @@ export default function About() {
         <div className="site-container">
           <SectionHeading eyebrow="OUR TEAM" title="团队成员" />
           <div className="team-grid">
-            {team.map(([image, role], index) => (
-              <figure className="team-card" key={`${role}-${index}`}>
-                <img src={`/assets/about/${image}`} alt={role} loading="lazy" />
-                <figcaption><strong>KOOSIMY</strong><span>{role}</span></figcaption>
+            {team.map((member, index) => (
+              <figure className="team-card" key={`${member.role}-${index}`}>
+                <img src={`/assets/about/${member.image}`} alt={`${member.name}，${member.role}`} loading="lazy" />
+                <figcaption className="team-card__caption">
+                  <strong className="team-card__name">{member.name}</strong>
+                  <span className="team-card__role">{member.role}</span>
+                  <span className="team-card__rule" aria-hidden="true" />
+                </figcaption>
               </figure>
             ))}
           </div>

@@ -1,5 +1,7 @@
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router'
+import '@fontsource-variable/inter'
+import '@fontsource-variable/noto-sans-sc'
 import './index.css'
 import App from './App.tsx'
 

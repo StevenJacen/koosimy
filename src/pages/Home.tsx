@@ -6,50 +6,49 @@ import SectionHeading from '../components/SectionHeading'
 
 interface Service {
   title: string
-  english: string
-  description: string
+  description: [string, string]
   image: string
   testId?: string
 }
 
 const services: Service[] = [
-  { image: '/assets/home/icon-strategy.svg', testId: 'service-icon-strategy', title: '策略研究', english: 'STRATEGY RESEARCH', description: '定义产品机会，建立清晰创新方向' },
-  { image: '/assets/home/icon-industrial.svg', testId: 'service-icon-industrial', title: '工业设计', english: 'INDUSTRIAL DESIGN', description: '塑造兼具美感与体验的产品形象' },
-  { image: '/assets/home/icon-structure.svg', testId: 'service-icon-structure', title: '结构设计', english: 'STRUCTURE DESIGN', description: '兼顾功能、制造与可靠落地' },
-  { image: '/assets/home/icon-brand.svg', testId: 'service-icon-brand', title: '品牌设计', english: 'BRAND DESIGN', description: '构建一致而鲜明的品牌表达' },
-  { image: '/assets/home/icon-supply-chain.svg', testId: 'service-icon-supply-chain', title: '供应链支持', english: 'SUPPLY CHAIN', description: '联动工程资源推动产品量产' },
+  { image: '/assets/home/icon-strategy.svg', testId: 'service-icon-strategy', title: '策略研究', description: ['洞察市场与用户', '定义产品方向'] },
+  { image: '/assets/home/icon-industrial.svg', testId: 'service-icon-industrial', title: '工业设计', description: ['创新设计与工程实现', '提升产品竞争力'] },
+  { image: '/assets/home/icon-structure.svg', testId: 'service-icon-structure', title: '结构设计', description: ['结构与工艺维度', '确保量产可行'] },
+  { image: '/assets/home/icon-brand.svg', testId: 'service-icon-brand', title: '品牌设计', description: ['品牌视觉与语言', '塑造品牌价值'] },
+  { image: '/assets/home/icon-supply-chain.svg', testId: 'service-icon-supply-chain', title: '供应链支持', description: ['量产落地与供应链整合', '助力产品成功上市'] },
 ]
 
 const industrialProjects = [
   {
     image: '/assets/home/industrial-equipment.jpg',
     number: '01',
-    title: '工业装备与智能制造',
-    description: '用系统设计串联高效生产与安全操作',
+    title: '工业设备与智能制造',
+    description: ['清晰化设计，提升产品', '检测与精度'],
   },
   {
     image: '/assets/home/underwater-tool.jpg',
     number: '02',
     title: '工具装备与智能应用',
-    description: '以可靠体验回应复杂环境与专业任务',
+    description: ['高效动力平台，稳定高效'],
   },
   {
     image: '/assets/home/medical-device.jpg',
     number: '03',
     title: '医疗健康与生命科技',
-    description: '在严谨功能中建立清晰、安心的使用体验',
+    description: ['多功能监护仪', '守护健康睡眠'],
   },
   {
     image: '/assets/home/cookware.jpg',
     number: '04',
     title: '生活方式与家居用品',
-    description: '让日常用品兼具温度、秩序与审美',
+    description: ['料理专家的厨房搭档', '美味生活每一天'],
   },
   {
     image: '/assets/home/smart-appliances.jpg',
     number: '05',
     title: '智能消费与生活电器',
-    description: '把智能技术转化为自然易用的生活体验',
+    description: ['便携温控，专注用户体验'],
   },
 ]
 
@@ -58,25 +57,21 @@ const brandProjects = [
     image: '/assets/home/brand-packaging.jpg',
     number: '01',
     title: '产品包装设计',
-    description: '让产品价值在第一眼被准确感知',
   },
   {
     image: '/assets/home/brand-system.jpg',
     number: '02',
     title: '品牌视觉系统',
-    description: '让品牌在包装、空间与数字触点保持一致',
   },
   {
     image: '/assets/home/signage.jpg',
     number: '03',
-    title: '空间导视设计',
-    description: '以清晰的信息秩序连接人与空间',
+    title: '空间标识设计',
   },
   {
     image: '/assets/home/digital-product.jpg',
     number: '04',
-    title: '数字产品设计',
-    description: '构建直观、友好且可持续迭代的数字体验',
+    title: '数字产品案例',
   },
 ]
 
@@ -103,7 +98,7 @@ export default function Home() {
           <h1>
             DESIGN<br />
             BEYOND<br />
-            <span>IMAGINATION</span>
+            <span className="home-hero__accent-line">IMAGINATION</span>
           </h1>
           <p className="home-hero__tagline">设计 · 连接未来</p>
         </div>
@@ -121,12 +116,11 @@ export default function Home() {
             <Link className="text-link home-services__more" to="/about">了解更多 →</Link>
           </Reveal>
           <div className="home-services__grid">
-            {services.map(({ image, testId, title, english, description }, index) => (
+            {services.map(({ image, testId, title, description }, index) => (
               <Reveal className="service-card" delay={index * 70} key={title}>
                 <img className="service-card__icon" data-testid={testId} src={image} alt="" aria-hidden="true" />
                 <strong>{title}</strong>
-                <span>{english}</span>
-                <small>{description}</small>
+                <small>{description[0]}<br />{description[1]}</small>
               </Reveal>
             ))}
           </div>
@@ -146,7 +140,7 @@ export default function Home() {
                 <span className="project-card__number">{project.number}</span>
                 <div className="project-card__content">
                   <h3>{project.title}</h3>
-                  <p>{project.description}</p>
+                  <p>{project.description[0]}{project.description[1] && <><br />{project.description[1]}</>}</p>
                   <Link to="/cases">查看案例 →</Link>
                 </div>
               </Reveal>
@@ -168,7 +162,6 @@ export default function Home() {
                 <span className="project-card__number">{project.number}</span>
                 <div className="project-card__content">
                   <h3>{project.title}</h3>
-                  <p>{project.description}</p>
                   <Link to="/cases">查看案例 →</Link>
                 </div>
               </Reveal>

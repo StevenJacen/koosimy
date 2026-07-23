@@ -33,4 +33,16 @@ describe('application routes', () => {
       'https://creativecommons.org/licenses/by/4.0/',
     )
   })
+
+  it('renders the prototype check icons and footer QR captions', () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <App />
+      </MemoryRouter>,
+    )
+
+    expect(screen.getAllByTestId('future-check-icon')).toHaveLength(3)
+    expect(screen.getByText('联系我们', { selector: 'figcaption' })).toBeInTheDocument()
+    expect(screen.getByText('抖音搜索', { selector: 'figcaption' })).toBeInTheDocument()
+  })
 })

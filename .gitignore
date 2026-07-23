@@ -1,5 +1,6 @@
 node_modules
 dist
+.npm-cache
 .DS_Store
 
 # Unused scaffold files retained locally but excluded from the site repository
