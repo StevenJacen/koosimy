@@ -3,6 +3,14 @@ import { describe, expect, it } from 'vitest'
 import Contact from './Contact'
 
 describe('Contact', () => {
+  it('uses the shorter contact hero ratio from the prototype', () => {
+    const { container } = render(<Contact />)
+
+    expect(
+      container.querySelector('.contact-hero')?.getAttribute('style'),
+    ).toContain('--hero-aspect: 3840 / 2112')
+  })
+
   it('renders actionable contact details and the supplied map', () => {
     render(<Contact />)
 

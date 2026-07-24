@@ -44,7 +44,13 @@ describe('Figma feedback CSS contract', () => {
       /\.future-banner__image\s*\{[^}]*object-fit:\s*contain/s,
     )
     expect(css).toMatch(
-      /\.contact-page\s+\.future-banner\s*\{[^}]*aspect-ratio:\s*3840\s*\/\s*1590/s,
+      /\.future-banner\s*\{[^}]*align-items:\s*flex-start[^}]*padding-top:\s*clamp\([^;]*52px\)/s,
+    )
+    expect(css).toMatch(
+      /\.cases-page\s+\.future-banner\s*\{[^}]*padding-top:\s*clamp\([^;]*82px\)/s,
+    )
+    expect(css).toMatch(
+      /\.contact-page\s+\.future-banner\s*\{[^}]*aspect-ratio:\s*3840\s*\/\s*1590[^}]*padding-top:\s*clamp\([^;]*115px\)/s,
     )
   })
 
@@ -178,6 +184,123 @@ describe('Figma feedback CSS contract', () => {
     )
     expect(css).toMatch(
       /\.team-card__rule\s*\{[^}]*background:\s*var\(--red\)/s,
+    )
+  })
+
+  it('matches the prototype section heights on the home and case pages', () => {
+    expect(css).toMatch(
+      /\.home-services\s*\{[^}]*padding:\s*clamp\([^;]*132px\)\s+0\s+clamp\([^;]*49px\)/s,
+    )
+    expect(css).toMatch(
+      /\.home-services\s+\.site-container\s*\{[^}]*grid-template-columns:\s*minmax\(clamp\([^;]*404px\),\s*0\.9fr\)\s+minmax\(0,\s*2\.7fr\)/s,
+    )
+    expect(css).toMatch(
+      /\.home-services__grid\s*\{[^}]*border-left:\s*0/s,
+    )
+    expect(css).toMatch(
+      /\.service-card\s*\{[^}]*min-height:\s*clamp\([^;]*235px\)[^}]*border-right:\s*1px\s+solid\s+rgba\(229,\s*0,\s*54,\s*0\.5\)/s,
+    )
+    expect(css).toMatch(
+      /\.service-card__icon,\s*\.service-card svg\s*\{[^}]*margin-bottom:\s*clamp\([^;]*46px\)/s,
+    )
+    expect(css).toMatch(
+      /\.project-section\s*\{[^}]*padding:\s*clamp\([^;]*120px\)\s+0\s+clamp\([^;]*48px\)/s,
+    )
+    expect(css).toMatch(
+      /\.project-section--industrial\s*\{[^}]*padding-bottom:\s*clamp\([^;]*57px\)/s,
+    )
+    expect(css).toMatch(
+      /\.brand-grid\s*\{[^}]*gap:\s*clamp\([^;]*24px\)/s,
+    )
+    expect(css).toMatch(
+      /\.awards\s*\{[^}]*padding:\s*clamp\([^;]*120px\)\s+0\s+clamp\([^;]*143px\)/s,
+    )
+    expect(css).toMatch(
+      /\.case-intro\s*\{[^}]*padding-block:\s*clamp\([^;]*124px\)\s+clamp\([^;]*235px\)/s,
+    )
+    expect(css).toMatch(
+      /\.case-gallery\s*\{[^}]*width:\s*min\(84\.375vw,\s*1620px\)[^}]*padding-bottom:\s*clamp\([^;]*131px\)/s,
+    )
+    expect(css).toMatch(
+      /\.related-cases\s*>\s*\.site-container\s*\{[^}]*width:\s*min\(84\.375vw,\s*1620px\)/s,
+    )
+    expect(css).toMatch(
+      /\.related-cases__grid\s*\{[^}]*gap:\s*clamp\([^;]*24px\)/s,
+    )
+    expect(css).toMatch(
+      /@media\s*\(max-width:\s*1200px\)[\s\S]*\.related-cases__arrow--previous\s*\{[^}]*left:\s*0[^}]*\}[\s\S]*\.related-cases__arrow--next\s*\{[^}]*right:\s*0/s,
+    )
+  })
+
+  it('matches the about-page regions and uses the prototype border hierarchy', () => {
+    expect(css).toMatch(
+      /\.about-page\s+\.site-container\s*\{[^}]*width:\s*min\(84\.375vw,\s*1620px\)/s,
+    )
+    expect(css).toMatch(
+      /\.about-profile\s*\{[^}]*padding-block:\s*clamp\([^;]*124px\)\s+clamp\([^;]*42px\)/s,
+    )
+    expect(css).toMatch(
+      /\.about-profile__intro\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*0\.93fr\)\s+minmax\(0,\s*1fr\)[^}]*align-items:\s*end/s,
+    )
+    expect(css).toMatch(
+      /\.about-profile__copy div p\s*\{[^}]*font-size:\s*clamp\([^;]*22px\)[^}]*line-height:\s*2/s,
+    )
+    expect(css).toMatch(
+      /\.stats-grid\s*\{[^}]*margin-top:\s*clamp\([^;]*140px\)[^}]*border:\s*1px\s+solid\s+#bfbfbf/s,
+    )
+    expect(css).toMatch(
+      /\.capability-list\s*\{[^}]*border-top:\s*1px\s+solid\s+#747474/s,
+    )
+    expect(css).toMatch(
+      /\.capability-row\s*\{[^}]*border-bottom:\s*1px\s+solid\s+#ccc/s,
+    )
+    expect(css).toMatch(
+      /\.capabilities\s*\{[^}]*padding:\s*clamp\([^;]*100px\)\s+0\s+clamp\([^;]*78px\)/s,
+    )
+    expect(css).toMatch(
+      /\.capability-row\s*\{[^}]*min-height:\s*clamp\([^;]*9\.7vw,\s*188px\)/s,
+    )
+    expect(css).toMatch(
+      /\.capability-row:last-child\s*\{[^}]*border-bottom:\s*0/s,
+    )
+    expect(css).toMatch(
+      /\.founders\s*\{[^}]*padding:\s*clamp\([^;]*68px\)\s+0\s+clamp\([^;]*38px\)/s,
+    )
+    expect(css).toMatch(
+      /\.founders__list\s*\{[^}]*width:\s*min\(79\.792vw,\s*1532px\)[^}]*gap:\s*clamp\([^;]*133px\)[^}]*margin:\s*clamp\([^;]*120px\)\s+auto\s+0/s,
+    )
+    expect(css).toMatch(
+      /\.founder-card\s*\{[^}]*border:\s*1px\s+solid\s+#9a9a9a/s,
+    )
+    expect(css).toMatch(
+      /\.team-section\s*\{[^}]*padding:\s*clamp\([^;]*112px\)\s+0\s+clamp\([^;]*60px\)/s,
+    )
+    expect(css).toMatch(
+      /\.partners\s*\{[^}]*padding:\s*clamp\([^;]*120px\)\s+0\s+clamp\([^;]*202px\)/s,
+    )
+    expect(css).toMatch(
+      /\.partners__grid\s*\{[^}]*gap:\s*clamp\([^;]*100px\)\s+clamp\([^;]*76px\)[^}]*margin-top:\s*clamp\([^;]*120px\)/s,
+    )
+  })
+
+  it('matches the contact region heights and removes terminal responsive borders', () => {
+    expect(css).toMatch(
+      /\.contact-methods\s*\{[^}]*padding:\s*clamp\([^;]*125px\)\s+0\s+clamp\([^;]*153px\)/s,
+    )
+    expect(css).toMatch(
+      /\.contact-method\s*\{[^}]*min-height:\s*clamp\([^;]*28\.7vw,\s*556px\)[^}]*border-right:\s*1px\s+solid\s+#bfbfbf/s,
+    )
+    expect(css).toMatch(
+      /\.location-section\s*\{[^}]*padding:\s*clamp\([^;]*140px\)\s+0\s+clamp\([^;]*72px\)/s,
+    )
+    expect(css).toMatch(
+      /\.location-info\s*>\s*div:last-child\s*\{[^}]*border-right:\s*0/s,
+    )
+    expect(css).toMatch(
+      /@media\s*\(max-width:\s*560px\)[\s\S]*\.location-info\s*>\s*div:last-child\s*\{[^}]*border-bottom:\s*0/s,
+    )
+    expect(css).toMatch(
+      /@media\s*\(max-width:\s*560px\)[\s\S]*\.contact-method:last-child\s*\{[^}]*border-bottom:\s*0/s,
     )
   })
 })

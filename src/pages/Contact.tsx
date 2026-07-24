@@ -34,7 +34,7 @@ export default function Contact() {
         className="contact-hero"
         src="/assets/contact/hero.jpg"
         alt="红色现代建筑空间"
-        aspectRatio="3840 / 2162"
+        aspectRatio="3840 / 2112"
       >
         <div className="site-container contact-hero__content">
           <p>联系我们</p>
