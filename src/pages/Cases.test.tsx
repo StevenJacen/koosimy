@@ -22,27 +22,27 @@ describe('Cases', () => {
     render(<Cases />)
 
     expect(screen.getByTestId('case-intro-content')).toHaveTextContent(
-      '将净化、加热、冲泡、陪伴融为一体',
+      '将“净化、加热、冲泡、陪伴”融为一体',
     )
     expect(screen.getByTestId('case-intro-content')).toHaveTextContent(
-      '让科技不再只是功能动作，而成为空间中的一部分',
+      '让“烧水”不再只是功能动作，而成为空间中的一部分',
     )
     expect(screen.getByTestId('case-intro-content')).toHaveTextContent(
       '它不仅是一台饮水设备，更像是一件安静陪伴生活的智能家居产品',
     )
   })
 
-  it('renders each introduction sentence in a whitespace-free block span', () => {
+  it('renders each introduction sentence in a whitespace-free inline span', () => {
     render(<Cases />)
 
     const expectedParagraphs = [
       [
-        '这是一款为现代生活方式而设计的智能即热净饮水壶，将净化、加热、冲泡、陪伴融为一体。',
-        '简约一体化机身搭配悬浮式透明水箱，以克制而高级的设计语言，自然融入居家、卧室、办公桌等多种生活场景。',
+        '这是一款为现代生活方式而设计的智能即热净饮水壶，将“净化、加热、冲泡、陪伴”融为一体。',
+        '简约一体化机身搭配悬浮式透明水箱，以克制而高级的设计语言，自然融入厨房、卧室、办公桌等多种生活场景。',
       ],
       [
         '创新的下沉式取水空间与折叠托盘设计，不仅兼容不同高度杯具，也让使用过程更整洁优雅。',
-        '柔和氛围灯与透明视窗结合，让科技不再只是功能动作，而成为空间中的一部分。',
+        '柔和氛围灯与透明视窗结合，让“烧水”不再只是功能动作，而成为空间中的一部分。',
       ],
       [
         '它不仅是一台饮水设备，更像是一件安静陪伴生活的智能家居产品。',
@@ -64,6 +64,11 @@ describe('Cases', () => {
       expect(paragraph.textContent).toBe(
         expectedParagraphs[paragraphIndex].join(''),
       )
+      expect(
+        [...sentences].every((sentence) =>
+          sentence.classList.contains('case-intro__sentence--line'),
+        ),
+      ).toBe(paragraphIndex !== 1)
     })
   })
 
@@ -92,7 +97,8 @@ describe('Cases', () => {
       expect(metadata).toBeInTheDocument()
       expect(
         [...(metadata?.children ?? [])].map((element) => element.tagName),
-      ).toEqual(['P', 'H3', 'SPAN'])
+      ).toEqual(['H3', 'SPAN'])
+      expect(metadata?.querySelector('.related-card__category')).not.toBeInTheDocument()
     })
   })
 
@@ -102,6 +108,13 @@ describe('Cases', () => {
     expect(document.querySelector('.case-story')).not.toBeInTheDocument()
     expect(screen.getByTestId('case-gallery')).toBeInTheDocument()
     expect(screen.getAllByTestId('related-case-english')).toHaveLength(2)
-    expect(screen.getByText('KONKA CHERRY POT')).toBeInTheDocument()
+    expect(screen.getAllByTestId('related-case-title').map((item) => item.textContent)).toEqual([
+      '康佳樱桃锅',
+      '康佳樱桃锅',
+    ])
+    expect(screen.getAllByTestId('related-case-english').map((item) => item.textContent)).toEqual([
+      'KONKA Cherry Pot',
+      'KONKA Cherry Pot',
+    ])
   })
 })

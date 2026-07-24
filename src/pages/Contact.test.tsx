@@ -66,7 +66,7 @@ describe('Contact', () => {
     ])
 
     expect(methods[0]).toHaveTextContent(
-      '电话咨询19301490913周一至周五 09:30 — 18:30',
+      '电话咨询19301490913周一到周五 9:00-18:00',
     )
     expect(methods[1]).toHaveTextContent(
       '邮箱联系tanqicai@koosimy.com24小时邮件响应',
@@ -100,7 +100,7 @@ describe('Contact', () => {
     const copy = container.querySelector('.consultation__copy')
     expect(copy?.querySelectorAll('br')).toHaveLength(3)
     expect(copy).toHaveTextContent(
-      '无论您有产品创意，品牌升级需求，还是项目合作意向，我们都愿意成为您最可靠的设计伙伴。随时联系我们，开启一段有价值的对话。',
+      '无论您有产品创意，品牌升级需求，还是项目合作意向，我们都愿意成为您最可趣的设计伙伴。随时联系我们，开启一段有价值的对话。',
     )
   })
 
@@ -139,5 +139,9 @@ describe('Contact', () => {
     expect(
       container.querySelectorAll('.social-platform .lucide-search'),
     ).toHaveLength(4)
+    expect(screen.getByText('Platform Rapid response')).toBeInTheDocument()
+    expect(
+      screen.getByText('上海市闵行区上海市闵行区光中路255号 2栋508'),
+    ).toBeInTheDocument()
   })
 })

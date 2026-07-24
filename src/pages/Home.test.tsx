@@ -149,4 +149,24 @@ describe('Home', () => {
     expect(screen.getByText('清晰化设计，提升产品', { exact: false })).toBeInTheDocument()
     expect(screen.getByText('洞察市场与用户', { exact: false })).toBeInTheDocument()
   })
+
+  it('uses dark copy only on the three light prototype project images', () => {
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>,
+    )
+
+    const darkTitles = [
+      '医疗健康与生命科技',
+      '生活方式与家居用品',
+      '产品包装设计',
+    ]
+    expect(document.querySelectorAll('.project-card--dark')).toHaveLength(3)
+    darkTitles.forEach((title) => {
+      expect(
+        screen.getByRole('heading', { name: title }).closest('.project-card'),
+      ).toHaveClass('project-card--dark')
+    })
+  })
 })

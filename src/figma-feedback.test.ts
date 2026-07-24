@@ -1,3 +1,7 @@
+/// <reference types="node" />
+
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import html from '../index.html?raw'
 import css from './index.css?raw'
@@ -6,7 +10,9 @@ import entry from './main.tsx?raw'
 describe('Figma feedback CSS contract', () => {
   it('uses the approved color, content width, typography, and header geometry', () => {
     expect(css).toMatch(/--red:\s*#e50036/i)
-    expect(css).toMatch(/\.site-container\s*\{[^}]*1680px/s)
+    expect(css).toMatch(
+      /\.site-container\s*\{[^}]*width:\s*min\(87\.5vw,\s*1680px\)/s,
+    )
     expect(css).toMatch(/\.site-header\s*\{[^}]*position:\s*absolute/s)
     expect(css).toMatch(/\.site-header\s*\{[^}]*height:\s*134px/s)
     expect(css).toMatch(/background:\s*rgba\(255,\s*255,\s*255,\s*0\.8\)/)
@@ -47,10 +53,10 @@ describe('Figma feedback CSS contract', () => {
       /\.future-banner\s*\{[^}]*align-items:\s*flex-start[^}]*padding-top:\s*clamp\([^;]*52px\)/s,
     )
     expect(css).toMatch(
-      /\.cases-page\s+\.future-banner\s*\{[^}]*padding-top:\s*clamp\([^;]*82px\)/s,
+      /\.cases-page\s+\.future-banner\s*\{[^}]*padding-top:\s*clamp\([^;]*100px\)/s,
     )
     expect(css).toMatch(
-      /\.contact-page\s+\.future-banner\s*\{[^}]*aspect-ratio:\s*3840\s*\/\s*1590[^}]*padding-top:\s*clamp\([^;]*115px\)/s,
+      /\.contact-page\s+\.future-banner\s*\{[^}]*aspect-ratio:\s*3840\s*\/\s*1590[^}]*padding-top:\s*clamp\([^;]*129px\)/s,
     )
   })
 
@@ -90,7 +96,7 @@ describe('Figma feedback CSS contract', () => {
       /\.site-footer__meta span\s*\{[^}]*font-size:\s*clamp\([^;]*24px\)/s,
     )
     expect(css).toMatch(
-      /\.site-footer\s*\{[^}]*padding:\s*clamp\([^;]*56px\)\s+0\s+clamp\([^;]*24px\)/s,
+      /\.site-footer\s*\{[^}]*padding:\s*clamp\([^;]*75px\)\s+0\s+clamp\([^;]*24px\)/s,
     )
     expect(css).toMatch(
       /\.site-footer__grid\s*\{[^}]*gap:\s*clamp\([^;]*38px\)\s+clamp\(/s,
@@ -213,16 +219,22 @@ describe('Figma feedback CSS contract', () => {
       /\.brand-grid\s*\{[^}]*gap:\s*clamp\([^;]*24px\)/s,
     )
     expect(css).toMatch(
-      /\.awards\s*\{[^}]*padding:\s*clamp\([^;]*120px\)\s+0\s+clamp\([^;]*143px\)/s,
+      /\.awards\s*\{[^}]*padding:\s*clamp\([^;]*120px\)\s+0\s+clamp\([^;]*150px\)/s,
     )
     expect(css).toMatch(
-      /\.case-intro\s*\{[^}]*padding-block:\s*clamp\([^;]*124px\)\s+clamp\([^;]*235px\)/s,
+      /\.case-intro\s*\{[^}]*padding-block:\s*clamp\([^;]*124px\)\s+clamp\([^;]*218\.6px\)/s,
+    )
+    expect(css).toMatch(
+      /\.case-intro\s*>\s*\.site-container\s*\{[^}]*width:\s*min\(84\.375vw,\s*1620px\)/s,
     )
     expect(css).toMatch(
       /\.case-gallery\s*\{[^}]*width:\s*min\(84\.375vw,\s*1620px\)[^}]*padding-bottom:\s*clamp\([^;]*131px\)/s,
     )
     expect(css).toMatch(
       /\.related-cases\s*>\s*\.site-container\s*\{[^}]*width:\s*min\(84\.375vw,\s*1620px\)/s,
+    )
+    expect(css).toMatch(
+      /\.cases-page\s+\.future-banner\s+\.site-container,\s*\.contact-page\s+\.future-banner\s+\.site-container\s*\{[^}]*width:\s*min\(84\.375vw,\s*1620px\)/s,
     )
     expect(css).toMatch(
       /\.related-cases__grid\s*\{[^}]*gap:\s*clamp\([^;]*24px\)/s,
@@ -237,7 +249,7 @@ describe('Figma feedback CSS contract', () => {
       /\.about-page\s+\.site-container\s*\{[^}]*width:\s*min\(84\.375vw,\s*1620px\)/s,
     )
     expect(css).toMatch(
-      /\.about-profile\s*\{[^}]*padding-block:\s*clamp\([^;]*124px\)\s+clamp\([^;]*42px\)/s,
+      /\.about-profile\s*\{[^}]*padding-block:\s*clamp\([^;]*124px\)\s+clamp\([^;]*79px\)/s,
     )
     expect(css).toMatch(
       /\.about-profile__intro\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*0\.93fr\)\s+minmax\(0,\s*1fr\)[^}]*align-items:\s*end/s,
@@ -246,7 +258,7 @@ describe('Figma feedback CSS contract', () => {
       /\.about-profile__copy div p\s*\{[^}]*font-size:\s*clamp\([^;]*22px\)[^}]*line-height:\s*2/s,
     )
     expect(css).toMatch(
-      /\.stats-grid\s*\{[^}]*margin-top:\s*clamp\([^;]*140px\)[^}]*border:\s*1px\s+solid\s+#bfbfbf/s,
+      /\.stats-grid\s*\{[^}]*margin-top:\s*clamp\([^;]*110px\)[^}]*border:\s*1px\s+solid\s+#bfbfbf/s,
     )
     expect(css).toMatch(
       /\.capability-list\s*\{[^}]*border-top:\s*1px\s+solid\s+#747474/s,
@@ -261,22 +273,57 @@ describe('Figma feedback CSS contract', () => {
       /\.capability-row\s*\{[^}]*min-height:\s*clamp\([^;]*9\.7vw,\s*188px\)/s,
     )
     expect(css).toMatch(
+      /\.capability-row\s*\{[^}]*grid-template-columns:\s*minmax\([^;]*326px\)\s+minmax\(0,\s*1fr\)/s,
+    )
+    expect(css).toMatch(
       /\.capability-row:last-child\s*\{[^}]*border-bottom:\s*0/s,
     )
     expect(css).toMatch(
-      /\.founders\s*\{[^}]*padding:\s*clamp\([^;]*68px\)\s+0\s+clamp\([^;]*38px\)/s,
+      /\.founders\s*\{[^}]*padding:\s*clamp\([^;]*62px\)\s+0\s+clamp\([^;]*52px\)/s,
     )
     expect(css).toMatch(
-      /\.founders__list\s*\{[^}]*width:\s*min\(79\.792vw,\s*1532px\)[^}]*gap:\s*clamp\([^;]*133px\)[^}]*margin:\s*clamp\([^;]*120px\)\s+auto\s+0/s,
+      /\.founders__list\s*\{[^}]*width:\s*min\(79\.792vw,\s*1532px\)[^}]*gap:\s*clamp\([^;]*133px\)[^}]*margin:\s*clamp\([^;]*107px\)\s+auto\s+0\s+16px/s,
     )
     expect(css).toMatch(
-      /\.founder-card\s*\{[^}]*border:\s*1px\s+solid\s+#9a9a9a/s,
+      /\.founder-card\s*\{[^}]*border:\s*1px\s+solid\s+#b8b8b8/s,
     )
     expect(css).toMatch(
-      /\.team-section\s*\{[^}]*padding:\s*clamp\([^;]*112px\)\s+0\s+clamp\([^;]*60px\)/s,
+      /\.founder-card__copy\s*\{[^}]*transform:\s*translateY\(3px\)/s,
     )
     expect(css).toMatch(
-      /\.partners\s*\{[^}]*padding:\s*clamp\([^;]*120px\)\s+0\s+clamp\([^;]*202px\)/s,
+      /\.founder-card__copy h3\s*\{[^}]*margin:\s*0\s+0\s+clamp\([^;]*64px\)[^}]*font-size:\s*clamp\([^;]*40px\)[^}]*font-weight:\s*600/s,
+    )
+    expect(css).toMatch(
+      /\.founder-card__copy p\s*\{[^}]*font-size:\s*clamp\([^;]*20px\)[^}]*font-weight:\s*500[^}]*line-height:\s*1\.38/s,
+    )
+    expect(css).toMatch(
+      /\.founder-card__decor-label\s*\{[^}]*color:\s*#d2d4d7[^}]*font-size:\s*clamp\([^;]*24px\)/s,
+    )
+    expect(css).toMatch(
+      /\.founder-card__decor-dots\s*\{[^}]*width:\s*50px[^}]*height:\s*52px/s,
+    )
+    expect(css).toMatch(
+      /\.founder-card__decor-axis\s*\{[^}]*width:\s*15px[^}]*height:\s*132px/s,
+    )
+    const tabletStart = css.indexOf(
+      '@media (min-width: 821px) and (max-width: 1309px)',
+    )
+    const tabletEnd = css.indexOf('@media (max-width: 820px)', tabletStart)
+    const tabletFounderRules = css.slice(tabletStart, tabletEnd)
+
+    expect(tabletStart).toBeGreaterThan(-1)
+    expect(tabletEnd).toBeGreaterThan(tabletStart)
+    expect(tabletFounderRules).toMatch(
+      /\.founder-card__decorations\s*\{[^}]*display:\s*none/s,
+    )
+    expect(tabletFounderRules).toMatch(
+      /\.founder-card--reverse\s*\{[^}]*grid-template-columns:\s*1fr\s+1fr/s,
+    )
+    expect(css).toMatch(
+      /\.team-section\s*\{[^}]*padding:\s*clamp\([^;]*112px\)\s+0\s+clamp\([^;]*19px\)/s,
+    )
+    expect(css).toMatch(
+      /\.partners\s*\{[^}]*padding:\s*clamp\([^;]*120px\)\s+0\s+clamp\([^;]*227px\)/s,
     )
     expect(css).toMatch(
       /\.partners__grid\s*\{[^}]*gap:\s*clamp\([^;]*100px\)\s+clamp\([^;]*76px\)[^}]*margin-top:\s*clamp\([^;]*120px\)/s,
@@ -291,7 +338,10 @@ describe('Figma feedback CSS contract', () => {
       /\.contact-method\s*\{[^}]*min-height:\s*clamp\([^;]*28\.7vw,\s*556px\)[^}]*border-right:\s*1px\s+solid\s+#bfbfbf/s,
     )
     expect(css).toMatch(
-      /\.location-section\s*\{[^}]*padding:\s*clamp\([^;]*140px\)\s+0\s+clamp\([^;]*72px\)/s,
+      /\.location-section\s*\{[^}]*padding:\s*clamp\([^;]*164px\)\s+0\s+clamp\([^;]*72px\)/s,
+    )
+    expect(css).toMatch(
+      /\.location-map\s*\{[^}]*width:\s*100%[^}]*min-width:\s*0/s,
     )
     expect(css).toMatch(
       /\.location-info\s*>\s*div:last-child\s*\{[^}]*border-right:\s*0/s,
@@ -301,6 +351,41 @@ describe('Figma feedback CSS contract', () => {
     )
     expect(css).toMatch(
       /@media\s*\(max-width:\s*560px\)[\s\S]*\.contact-method:last-child\s*\{[^}]*border-bottom:\s*0/s,
+    )
+  })
+
+  it('anchors project copy from the top and lets case sentences flow naturally', () => {
+    expect(css).toMatch(
+      /\.project-card__content\s*\{[^}]*inset:\s*clamp\([^;]*114px\)[^}]*auto/s,
+    )
+    expect(css).toMatch(
+      /\.case-intro__sentence\s*\{[^}]*display:\s*inline/s,
+    )
+    expect(css).not.toMatch(/\.site-footer__legal\s*\{/)
+  })
+
+  it('keeps the supplied founder SVG geometry and directional transforms intact', () => {
+    const arrow = readFileSync(
+      resolve(process.cwd(), 'public/assets/about/arrow-4.svg'),
+      'utf8',
+    )
+    const dots = readFileSync(
+      resolve(process.cwd(), 'public/assets/about/group-93.svg'),
+      'utf8',
+    )
+
+    expect(arrow).toContain('viewBox="0 0 15 132"')
+    expect(arrow).toContain('#ED141F')
+    expect(dots).toContain('viewBox="0 0 56 58"')
+    expect(dots.match(/<circle/g)).toHaveLength(9)
+    expect(css).toMatch(
+      /\.founder-card__decor-axis\s*\{[^}]*transform-origin:\s*7\.364px\s+131\.015px/s,
+    )
+    expect(css).toMatch(
+      /\.founder-card__decor-axis--horizontal\s*\{[^}]*transform:\s*rotate\(90deg\)/s,
+    )
+    expect(css).toMatch(
+      /\.founder-card--reverse \.founder-card__decor-axis--vertical\s*\{[^}]*transform:\s*rotate\(180deg\)/s,
     )
   })
 })

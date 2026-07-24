@@ -9,7 +9,7 @@ export default function SiteFooter() {
         <div className="site-footer__meta">
           <div>
             <span>公司地址</span>
-            <p>上海市闵行区光中路255号 2栋508</p>
+            <p>上海市闵行区上海市闵行区光中路255号 2栋508</p>
           </div>
           <div>
             <span>商务合作</span>
@@ -35,15 +35,6 @@ export default function SiteFooter() {
             <figcaption>抖音搜索</figcaption>
           </figure>
         </div>
-      </div>
-      <div className="site-container site-footer__legal">
-        <span>© {new Date().getFullYear()} KOOSIMY. All rights reserved.</span>
-        <p className="site-footer__attribution">
-          <span>Icons by Nobita (IcoFont), licensed under </span>
-          <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">
-            CC BY 4.0
-          </a>
-        </p>
       </div>
     </footer>
   )

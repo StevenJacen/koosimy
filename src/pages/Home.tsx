@@ -37,12 +37,14 @@ const industrialProjects = [
     number: '03',
     title: '医疗健康与生命科技',
     description: ['多功能监护仪', '守护健康睡眠'],
+    dark: true,
   },
   {
     image: '/assets/home/cookware.jpg',
     number: '04',
     title: '生活方式与家居用品',
     description: ['料理专家的厨房搭档', '美味生活每一天'],
+    dark: true,
   },
   {
     image: '/assets/home/smart-appliances.jpg',
@@ -57,6 +59,7 @@ const brandProjects = [
     image: '/assets/home/brand-packaging.jpg',
     number: '01',
     title: '产品包装设计',
+    dark: true,
   },
   {
     image: '/assets/home/brand-system.jpg',
@@ -134,7 +137,7 @@ export default function Home() {
           </Reveal>
           <div className="industrial-grid">
             {industrialProjects.map((project, index) => (
-              <Reveal className={`project-card project-card--industrial project-card--${index + 1}`} delay={index * 60} key={project.title}>
+              <Reveal className={`project-card project-card--industrial project-card--${index + 1}${project.dark ? ' project-card--dark' : ''}`} delay={index * 60} key={project.title}>
                 <img src={project.image} alt={project.title} loading="lazy" />
                 <div className="project-card__shade" />
                 <span className="project-card__number">{project.number}</span>
@@ -156,7 +159,7 @@ export default function Home() {
           </Reveal>
           <div className="brand-grid">
             {brandProjects.map((project, index) => (
-              <Reveal className="project-card project-card--brand" delay={index * 60} key={project.title}>
+              <Reveal className={`project-card project-card--brand${project.dark ? ' project-card--dark' : ''}`} delay={index * 60} key={project.title}>
                 <img src={project.image} alt={project.title} loading="lazy" />
                 <div className="project-card__shade" />
                 <span className="project-card__number">{project.number}</span>

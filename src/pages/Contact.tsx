@@ -53,7 +53,7 @@ export default function Contact() {
               <span>电话咨询</span>
               <p>
                 <a href="tel:19301490913">19301490913</a><br />
-                周一至周五 09:30 — 18:30
+                周一到周五 9:00-18:00
               </p>
             </Reveal>
             <Reveal className="contact-method" delay={60}>
@@ -91,7 +91,7 @@ export default function Contact() {
               <p>
                 无论您有产品创意，品牌升级需求，<br />
                 还是项目合作意向，<br />
-                我们都愿意成为您最可靠的设计伙伴。<br />
+                我们都愿意成为您最可趣的设计伙伴。<br />
                 随时联系我们，开启一段有价值的对话。
               </p>
             </Reveal>
@@ -104,7 +104,7 @@ export default function Contact() {
           <SectionHeading eyebrow="LOCATION" title="我们在这里" />
           <div className="location-address">
             <img src="/assets/contact/icon-location.svg" alt="" aria-hidden="true" />
-            <p><strong>公司地址</strong><span>上海市闵行区光中路255号 2栋508</span></p>
+            <p><strong>公司地址</strong><span>上海市闵行区上海市闵行区光中路255号 2栋508</span></p>
           </div>
           <div className="location-section__grid">
             <Reveal className="location-map">

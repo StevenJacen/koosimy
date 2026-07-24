@@ -20,18 +20,18 @@ describe('application routes', () => {
     expect(screen.getAllByText(heading, { exact: false }).length).toBeGreaterThan(0)
   })
 
-  it('credits the supplied icon set in the shared footer', () => {
+  it('keeps the shared footer limited to prototype content', () => {
     render(
       <MemoryRouter initialEntries={['/']}>
         <App />
       </MemoryRouter>,
     )
 
-    expect(screen.getByText(/Icons by Nobita \(IcoFont\)/)).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'CC BY 4.0' })).toHaveAttribute(
-      'href',
-      'https://creativecommons.org/licenses/by/4.0/',
-    )
+    expect(screen.queryByText(/Icons by Nobita \(IcoFont\)/)).not.toBeInTheDocument()
+    expect(screen.queryByText(/All rights reserved/)).not.toBeInTheDocument()
+    expect(
+      screen.getByText('上海市闵行区上海市闵行区光中路255号 2栋508'),
+    ).toBeInTheDocument()
   })
 
   it('renders the prototype check icons and footer QR captions', () => {
