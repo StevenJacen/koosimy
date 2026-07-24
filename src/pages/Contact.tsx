@@ -1,4 +1,4 @@
-import { Building2, CarFront, Clock3, Search } from 'lucide-react'
+import { CarFront, Clock3, Search } from 'lucide-react'
 import FutureBanner from '../components/FutureBanner'
 import Reveal from '../components/Reveal'
 import ResponsiveHero from '../components/ResponsiveHero'
@@ -122,7 +122,13 @@ export default function Contact() {
                 <strong>距离地铁5号线颛桥站1.6公里<br />园区提供访客停车位</strong>
               </div>
               <div>
-                <Building2 className="location-info__icon" aria-hidden="true" />
+                <img
+                  className="location-info__icon location-info__visit-icon"
+                  data-testid="location-info-visit-icon"
+                  src="/assets/contact/icon-visit.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
                 <span>来访建议</span>
                 <strong>为了您有更好的参考体验<br />来访前请与我们联系</strong>
               </div>

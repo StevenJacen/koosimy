@@ -104,12 +104,16 @@ describe('Contact', () => {
     )
   })
 
-  it('renders the prototype visit guidance with lucide icons', () => {
+  it('renders the prototype visit guidance with its dedicated building icon', () => {
     const { container } = render(<Contact />)
 
     expect(container.querySelector('.lucide-clock-3')).toBeInTheDocument()
     expect(container.querySelector('.lucide-car-front')).toBeInTheDocument()
-    expect(container.querySelector('.lucide-building-2')).toBeInTheDocument()
+    expect(container.querySelector('.lucide-building-2')).not.toBeInTheDocument()
+    expect(screen.getByTestId('location-info-visit-icon')).toHaveAttribute(
+      'src',
+      '/assets/contact/icon-visit.svg',
+    )
 
     const guidance = Array.from(
       container.querySelectorAll('.location-info > div'),

@@ -125,6 +125,12 @@ describe('Figma feedback CSS contract', () => {
     expect(css).toMatch(
       /\.contact-method a,\s*\.contact-method p\s*\{[^}]*font-size:\s*clamp\([^;]*24px\)/s,
     )
+    expect(css).toMatch(
+      /\.location-info__visit-icon\s*\{[^}]*width:\s*clamp\([^;]*64px\)[^}]*height:\s*clamp\([^;]*64px\)/s,
+    )
+    expect(css).toMatch(
+      /\.social-platform:nth-child\(4\) img\s*\{[^}]*width:\s*198px/s,
+    )
   })
 
   it('uses the complete consultation artwork and correctly scaled location content', () => {
